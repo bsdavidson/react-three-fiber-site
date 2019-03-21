@@ -1,5 +1,7 @@
 # react-three-fiber-site
 
+- Preview: https://inspiring-wiles-b4ffe0.netlify.com/
+
 - `yarn dev` for local env
 
 - `yarn build` to build
