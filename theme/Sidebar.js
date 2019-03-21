@@ -2,12 +2,11 @@ import React from 'react'
 import { Docs, Link } from 'docz'
 import rtfLogo from './images/rtf-logo.svg';
 
-const getName = string => {
+const getTitle = string => {
     return string
             .replace(/[0-9]+\-+/, "")
             .replace(/\.mdx/, "")
-            .replace(/\-/g, " ")
-            .replace(/\./, ". ");
+            .replace(/\-/g, " ");
 }
 
 const Sidebar = ({style}) => (
@@ -66,14 +65,14 @@ const MenuItem = ({item, level, menuItems}) => (
 
 const FolderTitle = ({ name, level }) => (
     <div style={{ fontSize: "0.9em", marginLeft: `${1 * level}em`, textTransform: 'capitalize'}}>
-        {getName(name)}
+        {getTitle(name)}
     </div>
 )
 
 const SidebarLink = ({name, doc, level}) => (
     <div style={{ fontSize: "0.9em", marginLeft: `${1 * level}em`, textTransform: 'capitalize' }}>
         <Link key={doc.id} to={doc.route}>
-            {getName(name)}
+            {getTitle(name)}
         </Link>
     </div>
 )
