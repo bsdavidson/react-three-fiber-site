@@ -2,9 +2,9 @@
 
 - Preview: https://inspiring-wiles-b4ffe0.netlify.com/
 
-- `yarn dev` for local env
+- Local Env: `yarn dev`
 
-- `yarn build` to build
+- Build: `yarn build`, Publish Directory: `.docz/dist`
 
 - The documentation files are located in the `docs` folder.
 
