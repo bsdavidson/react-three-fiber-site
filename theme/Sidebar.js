@@ -1,6 +1,6 @@
 import React from 'react'
 import { Docs, Link } from 'docz'
-import rtfLogo from './images/rtf-logo.svg';
+import Logo from './images/Logo.js';
 
 const getTitle = string => {
     return string
@@ -36,7 +36,7 @@ const Sidebar = ({style}) => (
             })
             return <div className="sidebar" style={style}>
                 <div style={{marginBottom: "1em", fontSize: "1.2em"}}>
-                    <img src={rtfLogo} style={{ width: "100px" }} />
+                    <Logo style={{ width: "100px" }} />
                     <div>react-three-fiber</div>
                 </div>
                 
