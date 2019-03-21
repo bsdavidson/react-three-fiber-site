@@ -3,7 +3,7 @@ import { css } from 'docz-plugin-css'
 
 export default {
     src: './guide/',
-    theme: 'theme/0.index',
+    theme: 'theme/index',
     indexHtml: 'theme/index.html',
     plugins: [
         doczPluginNetlify(),
