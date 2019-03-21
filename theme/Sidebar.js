@@ -2,6 +2,14 @@ import React from 'react'
 import { Docs, Link } from 'docz'
 import rtfLogo from './images/rtf-logo.svg';
 
+const getName = string => {
+    return string
+            .replace(/[0-9]+\-+/, "")
+            .replace(/\.mdx/, "")
+            .replace(/\-/g, " ")
+            .replace(/\./, ". ");
+}
+
 const Sidebar = ({style}) => (
     <Docs>
         {({ docs }) => {
@@ -44,7 +52,7 @@ const Sidebar = ({style}) => (
 
 const MenuItem = ({item, level, menuItems}) => (
     item.type === "link" ?
-        <SidebarLink doc={item.doc} level={level} />
+        <SidebarLink name={item.name} doc={item.doc} level={level} />
     :
         <div>
             <FolderTitle name={item.name} level={level} />
@@ -58,14 +66,14 @@ const MenuItem = ({item, level, menuItems}) => (
 
 const FolderTitle = ({ name, level }) => (
     <div style={{ fontSize: "0.9em", marginLeft: `${1 * level}em`, textTransform: 'capitalize'}}>
-        {name.split('-').join(' ')}
+        {getName(name)}
     </div>
 )
 
-const SidebarLink = ({doc, level}) => (
-    <div style={{ fontSize: "0.9em", marginLeft:`${1*level}em` }}>
+const SidebarLink = ({name, doc, level}) => (
+    <div style={{ fontSize: "0.9em", marginLeft: `${1 * level}em`, textTransform: 'capitalize' }}>
         <Link key={doc.id} to={doc.route}>
-            {doc.name}
+            {getName(name)}
         </Link>
     </div>
 )
