@@ -34,14 +34,13 @@ const Sidebar = ({style}) => (
                     prevItem = currentItem
                 })
             })
-            return <div style={style}>
+            return <div className="sidebar" style={style}>
                 <div style={{marginBottom: "1em", fontSize: "1.2em"}}>
                     <img src={rtfLogo} style={{ width: "100px" }} />
                     <div>react-three-fiber</div>
                 </div>
                 
                 {menuItems.filter(mi => !mi.parent).sort((a,b) => a.name.localeCompare(b.name)).map(item => {
-					console.log('TCL: item', item)
                     return <MenuItem item={item} level={0} menuItems={menuItems} />
                 })}
             </div>
@@ -70,7 +69,7 @@ const FolderTitle = ({ name, level }) => (
 )
 
 const SidebarLink = ({name, doc, level}) => (
-    <div style={{ fontSize: "0.9em", marginLeft: `${1 * level}em`, textTransform: 'capitalize' }}>
+    <div style={{ fontSize: "0.9em", marginLeft: `${1 * level}em`, textTransform: 'capitalize'}}>
         <Link key={doc.id} to={doc.route}>
             {getTitle(name)}
         </Link>

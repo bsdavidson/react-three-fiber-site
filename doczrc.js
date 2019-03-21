@@ -2,7 +2,7 @@ import doczPluginNetlify from "docz-plugin-netlify";
 import { css } from 'docz-plugin-css'
 
 export default {
-    src: './guide/',
+    src: './docs/',
     theme: 'theme/index',
     indexHtml: 'theme/index.html',
     plugins: [

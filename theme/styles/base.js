@@ -88,4 +88,7 @@ injectGlobal`
   h1 {
     margin-top: 0;
   }
+  .sidebar {
+    color: ${colors.purpleLight}
+  }
 `
