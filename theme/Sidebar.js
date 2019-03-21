@@ -4,7 +4,7 @@ import Logo from './images/Logo.js';
 
 const getTitle = string => {
     return string
-            .replace(/[0-9]+\-+/, "")
+            .replace(/[0-9\.]+\-+/, "")
             .replace(/\.mdx/, "")
             .replace(/\-/g, " ");
 }
