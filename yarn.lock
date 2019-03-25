@@ -5366,10 +5366,6 @@ react-dom@^16.7.0:
     prop-types "^15.6.2"
     scheduler "^0.13.4"
 
-react-emotion@^10.0.0:
-  version "10.0.0"
-  resolved "https://registry.yarnpkg.com/react-emotion/-/react-emotion-10.0.0.tgz#03adf5a93f9dc41396401551566adf9668a2418e"
-
 react-error-overlay@^5.1.4:
   version "5.1.4"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-5.1.4.tgz#88dfb88857c18ceb3b9f95076f850d7121776991"
