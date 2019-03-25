@@ -30,9 +30,8 @@ injectGlobal`
     margin: 0;
     padding: 0;
     font-family: Courier, sans-serif;
-    font-size: 18px;
     font-weight: 300;
-    line-height: 1.62;
+    line-height: 1.4;
     letter-spacing: -0.005em;
     background: white;
     overflow: hidden;
@@ -83,6 +82,7 @@ injectGlobal`
 
   pre, code {
     font-family: 'Inconsolate', monospace;
+    font-size: 0.9em;
   }
 
   .sidebar {

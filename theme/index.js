@@ -28,7 +28,6 @@ const Theme = () => (
                 width: '100%',
                 display: 'inline-block',
                 textAlign: 'left',
-                fontSize: '0.85em',
             }} >
                 <DocPreview
                     components={{
