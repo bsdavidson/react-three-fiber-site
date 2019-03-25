@@ -3,11 +3,12 @@ import './styles/base'
 import React from 'react'
 import { theme, DocPreview } from 'docz'
 import Sidebar from './Sidebar'
+import * as components from './components/ui/'
 
 const Theme = () => (
     <div style={{
         display: "flex",
-        minHeight: "100vh",
+        height: "100%",
     }}>
         <Sidebar style={{
             flex: "0 0 auto",
@@ -18,9 +19,25 @@ const Theme = () => (
         }} />
         <div style={{
             flex: "1 1 auto",
-            padding: '1em'
+            padding: '2em',
+            overflow: 'auto',
+            textAlign: 'center'
         }}>
-            <DocPreview />
+            <div style={{
+                maxWidth: '58em',
+                width: '100%',
+                display: 'inline-block',
+                textAlign: 'left',
+                fontSize: '0.85em',
+            }} >
+                <DocPreview
+                    components={{
+                        pre: components.Pre,
+                        inlineCode: components.Code,
+                        blockquote: components.Blockquote,
+                    }}
+                />
+            </div>
         </div>
     </div>
 )
