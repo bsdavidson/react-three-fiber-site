@@ -8,7 +8,7 @@
     "build": "docz build"
   },
   "devDependencies": {
-    "docz": "latest",
+    "docz": "^0.13.7",
     "emotion": "^10.0.9"
   },
   "dependencies": {
