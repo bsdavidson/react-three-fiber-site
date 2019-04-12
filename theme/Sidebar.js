@@ -49,9 +49,6 @@ const Sidebar = ({style}) => (
                         return <MenuItem item={item} level={0} menuItems={menuItems} />
                     })}
                 </div>
-                <div style={{ marginTop: "1em", flex: '0 0 auto' }} >
-                    <a href="https://github.com/drcmda/react-three-fiber" target="_blank">Github -></a>
-                </div>
             </div>
         }}
     </Docs>
