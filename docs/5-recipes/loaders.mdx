@@ -1,0 +1,17 @@
+# Handling loaders
+
+You can use React's built-in memoizing-features (as well as suspense) to build async dependence graphs.
+
+```jsx
+function Image({ url }) {
+  const texture = useMemo(() => new THREE.TextureLoader().load(url), [url])
+  return (
+    <mesh>
+      <planeBufferGeometry attach="geometry" args={[1, 1]} />
+      <meshLambertMaterial attach="material" transparent>
+        <primitive attach="map" object={texture} />
+      </meshLambertMaterial>
+    </mesh>
+  )
+}
+```

@@ -1,0 +1,26 @@
+# Dealing with effects (hijacking main render-loop)
+
+Managing effects can get quite complex normally. Drop the component below into a scene and you have a live effect. Remove it and everything is as it was without any re-configuration.
+
+```jsx
+import { apply, Canvas, useRender, useThree } from 'react-three-fiber'
+import { EffectComposer } from './postprocessing/EffectComposer'
+import { RenderPass } from './postprocessing/RenderPass'
+import { GlitchPass } from './postprocessing/GlitchPass'
+// Makes these objects available as native objects "<renderPass />" and so on
+apply({ EffectComposer, RenderPass, GlitchPass })
+
+function Effects({ factor }) {
+  const { gl, scene, camera, size } = useThree()
+  const composer = useRef()
+  useEffect(() => void composer.current.setSize(size.width, size.height), [size])
+  // This takes over as the main render-loop (when 2nd arg is set to true)
+  useRender(() => composer.current.render(), true)
+  return (
+    <effectComposer ref={composer} args={[gl]}>
+      <renderPass attachArray="passes" args={[scene, camera]} />
+      <glitchPass attachArray="passes" factor={factor} renderToScreen />
+    </effectComposer>
+  )
+}
+```

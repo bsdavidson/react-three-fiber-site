@@ -1,0 +1,35 @@
+# Events
+
+THREE objects that implement their own `raycast` method (for instance meshes, lines, etc) can be interacted with by declaring events on the object. We support pointer events ([you need to polyfill them yourself](https://github.com/jquery/PEP)), clicks and wheel-scroll.
+
+Additionally there's a special `onUpdate` that is called every time the object is updated with fresh props (as well as when it's first being created).
+
+The event data you receive contains the browser event as well as the Threejs event data (object, point, distance, etc) all merged into one object.
+
+```jsx
+<mesh
+  onClick={e => console.log('click')}
+  onWheel={e => console.log('wheel spins')}
+  onPointerUp={e => console.log('up')}
+  onPointerDown={e => console.log('down')}
+  onPointerOver={e => console.log('hover')}
+  onPointerOut={e => console.log('unhover')}
+  onPointerMove={e => console.log('move')}
+  onUpdate={self => console.log('props have been updated')}
+```
+
+## Propagation and capturing
+
+```jsx
+  onPointerDown={e => {
+    // Only the mesh closest to the camera will be processed
+    e.stopPropagation()
+    // You may optionally capture the target
+    e.target.setPointerCapture(e.pointerId)
+  }}
+  onPointerUp={e => {
+    e.stopPropagation()
+    // Optionally release capture
+    e.target.releasePointerCapture(e.pointerId)
+  }}
+```

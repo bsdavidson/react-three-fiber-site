@@ -1,0 +1,58 @@
+---
+name: Home
+route: /
+---
+
+# react-three-fiber
+
+<p align="center">
+  <a href="https://codesandbox.io/embed/jz9l97qn89" target="_blank"><img width="100%" src="https://i.imgur.com/zrhe5Jc.gif" /></a>
+  <a href="https://codesandbox.io/embed/kky7yk087v" target="_blank"><img width="50%" src="https://i.imgur.com/jemlXzE.gif" /></a>
+  <a href="https://codesandbox.io/embed/ly0oxkp899" target="_blank"><img width="50%" src="https://i.imgur.com/vjmDwpS.gif" /></a>
+  <a href="https://codesandbox.io/embed/9y8vkjykyy" target="_blank"><img width="50%" src="https://i.imgur.com/tQi753C.gif" /></a>
+  <a href="https://codesandbox.io/embed/y3j31r13zz" target="_blank"><img width="50%" src="https://i.imgur.com/iFtjKHM.gif" /></a>
+</p>
+<p align="middle">
+  <i>These demos are real, you can click them! They contain the full code, too.</i>
+</p>
+
+    npm install react-three-fiber
+
+React-three-fiber is a small React renderer for Threejs. Why, you might ask? React was made to drive complex tree structures, it makes just as much sense for Threejs as for the DOM. Building a dynamic scene graph becomes so much easier because you can break it up into declarative, re-usable components with clean, reactive semantics. This also opens up the ecosystem, you can now apply generic packages for state, animation, gestures and so on.
+
+## Difference to react-three, react-three-renderer, react-three-renderer-fiber
+
+This is a small reconciler config with a few additions for interaction and hooks holding it all together. It does not know or care about Three internals, it uses heuristics for objects and attributes, so that we can get away without creating a strong dependency. Three is constantly changing, we don't want to rely on a specific version or chase their release cycle. This library works with version 1 as well as their latest. At the same time we don't want to alter any rules, if something works in Threejs in a specific way, it will be the same here.
+
+
+# What it looks like ...
+
+Copy the following into a project to get going. [Here's the same](https://codesandbox.io/s/rrppl0y8l4) running in a code sandbox.
+
+```jsx
+import * as THREE from 'three'
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Canvas } from 'react-three-fiber'
+
+function Thing({ vertices, color }) {
+  return (
+    <group ref={ref => console.log('we have access to the instance')}>
+      <line>
+        <geometry
+          attach="geometry"
+          vertices={vertices.map(v => new THREE.Vector3(...v))}
+          onUpdate={self => (self.verticesNeedUpdate = true)}
+        />
+        <lineBasicMaterial attach="material" color="black" />
+      </line>
+      <mesh 
+        onClick={e => console.log('click')} 
+        onPointerOver={e => console.log('hover')} 
+        onPointerOut={e => console.log('unhover')}>
+        <octahedronGeometry attach="geometry" />
+        <meshBasicMaterial attach="material" color="peachpuff" opacity={0.5} transparent />
+      </mesh>
+    </group>
+  )
+}

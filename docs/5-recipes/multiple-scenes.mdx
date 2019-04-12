@@ -1,0 +1,38 @@
+# Heads-up display (rendering multiple scenes)
+
+`useRender` allows components to hook into the render-loop, or even to take it over entirely. That makes it possible for one component to render over the content of another. The order of these operations is established by the scene-graph.
+
+```jsx
+function Content({ camera }) {
+  const scene = useRef()
+  useRender(({ gl }) => void ((gl.autoClear = true), gl.render(scene.current, camera)), true)
+  return <scene ref={scene}>{/* ... */}</scene>
+}
+
+function HeadsUpDisplay({ camera }) {
+  const scene = useRef()
+  useRender(({ gl }) => void ((gl.autoClear = false), gl.clearDepth(), gl.render(scene.current, camera)))
+  return <scene ref={scene}>{/* ... */}</scene>
+}
+
+function Main() {
+  const camera = useRef()
+  const { width, height } = useThree().size
+  return (
+    <>
+      <perspectiveCamera
+        ref={camera}
+        aspect={width / height}
+        radius={(width + height) / 4}
+        onUpdate={self => self.updateProjectionMatrix()}
+      />
+      {camera.current && (
+        <group>
+          <Content camera={camera.current} />
+          <HeadsUpDisplay camera={camera.current} />
+        </group>
+      )}
+    </>
+  )
+}
+```

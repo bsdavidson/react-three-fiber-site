@@ -31,8 +31,8 @@ injectGlobal`
     padding: 0;
     font-family: Courier, sans-serif;
     font-weight: 300;
-    line-height: 1.4;
-    letter-spacing: -0.005em;
+    line-height: 1.25;
+    letter-spacing: -0.025em;
     background: white;
     overflow: hidden;
   }
@@ -56,7 +56,7 @@ injectGlobal`
   }
 
   a:hover {
-    color: ${colors.link};
+    color: ${colors.linkHover};
   }
 
   input:-webkit-autofill,
@@ -86,6 +86,12 @@ injectGlobal`
   }
 
   .sidebar {
-    color: ${colors.purpleLight}
+    color: ${colors.purpleLight};
+    line-height: 1.5;
+    letter-spacing: 0;
+  }
+
+  h1:not(:first-child), h2:not(:first-child), h3:not(:first-child) {
+    margin-top: 2em;
   }
 `

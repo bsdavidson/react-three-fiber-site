@@ -5,7 +5,7 @@ export const blue = '#3c7ebf'
 export const blueDark = '#4765ae'
 export const blueLight = "#5ac9e5"
 
-export const main = purple
+export const main = "#af1d5f"
 export const primary = purple
 export const white = '#FFFFFF'
 export const grayExtraLight = '#EFF2F7'
@@ -15,5 +15,6 @@ export const grayDark = '#8492A6'
 
 export const text = main
 export const link = blueLight
+export const linkHover = purpleLight
 export const background = white
 export const border = gray

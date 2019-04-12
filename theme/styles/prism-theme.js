@@ -6,7 +6,7 @@ export const prismTheme = injectGlobal`
  * Based on dabblet (http://dabblet.com)
  * @author Lea Verou
  */
-code[class*="language-"],
+code,code[class*="language-"],
 pre[class*="language-"] {
   color: #ABB2BF;
   background: none;
@@ -18,6 +18,7 @@ pre[class*="language-"] {
   word-break: normal;
   word-wrap: normal;
   line-height: 1.5;
+  letter-spacing: 0;
   -moz-tab-size: 4;
   -o-tab-size: 4;
   tab-size: 4;
@@ -28,19 +29,19 @@ pre[class*="language-"] {
 }
 
 pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
-code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+code, code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
   text-shadow: none;
   background: #383e49;
 }
 
 pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
-code[class*="language-"]::selection, code[class*="language-"] ::selection {
+code, code[class*="language-"]::selection, code[class*="language-"] ::selection {
   text-shadow: none;
   background: #9aa2b1;
 }
 
 @media print {
-  code[class*="language-"],
+  code,code[class*="language-"],
   pre[class*="language-"] {
     text-shadow: none;
   }
@@ -51,13 +52,13 @@ pre[class*="language-"] {
   overflow: auto;
 }
 
-:not(pre) > code[class*="language-"],
+:not(pre) > code, :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
   background: #282c34;
 }
 
 /* Inline code */
-:not(pre) > code[class*="language-"] {
+:not(pre) > code, :not(pre) > code[class*="language-"] {
   padding: .1em;
   border-radius: .3em;
   white-space: normal;

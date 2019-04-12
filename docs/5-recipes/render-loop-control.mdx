@@ -1,0 +1,14 @@
+# Rendering only when needed
+
+By default it renders like a game loop, which isn't that battery efficient. Switch on `invalidateFrameloop` to activate loop invalidation, which is automatic most of the time.
+
+```jsx
+<Canvas invalidateFrameloop ... />
+```
+
+Sometimes you must be able to kick off frames manually, for instance when you're dealing with async stuff or camera controls:
+
+```jsx
+const { invalidate } = useThree()
+const texture = useMemo(() => loader.load(url1, invalidate), [url1])
+```

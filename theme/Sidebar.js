@@ -34,15 +34,24 @@ const Sidebar = ({style}) => (
                     prevItem = currentItem
                 })
             })
-            return <div className="sidebar" style={style}>
-                <div style={{marginBottom: "1em", fontSize: "1.2em"}}>
+            return <div className="sidebar" style={{
+                display: 'flex',
+                flexDirection: 'column',
+                fontSize: '1.1em',
+                ...style
+            }}>
+                <div style={{marginBottom: "1em", fontSize: "1.2em", flex: '0 0 auto'}}>
                     <Logo style={{ width: "100px" }} />
                     <div>react-three-fiber</div>
                 </div>
-                
-                {menuItems.filter(mi => !mi.parent).sort((a,b) => a.name.localeCompare(b.name)).map(item => {
-                    return <MenuItem item={item} level={0} menuItems={menuItems} />
-                })}
+                <div style={{flex: '1 1 auto', overflowY: 'auto', overflowX: 'hidden'}}>
+                    {menuItems.filter(mi => !mi.parent).sort((a,b) => a.name.localeCompare(b.name)).map(item => {
+                        return <MenuItem item={item} level={0} menuItems={menuItems} />
+                    })}
+                </div>
+                <div style={{ marginTop: "1em", flex: '0 0 auto' }} >
+                    <a href="https://github.com/drcmda/react-three-fiber" target="_blank">Github -></a>
+                </div>
             </div>
         }}
     </Docs>
@@ -63,13 +72,13 @@ const MenuItem = ({item, level, menuItems}) => (
 )
 
 const FolderTitle = ({ name, level }) => (
-    <div style={{ fontSize: "0.9em", marginLeft: `${1 * level}em`, textTransform: 'capitalize'}}>
+    <div style={{ fontSize: "0.9em", marginLeft: `${0.5 * level}em`, textTransform: 'capitalize'}}>
         {getTitle(name)}
     </div>
 )
 
 const SidebarLink = ({name, doc, level}) => (
-    <div style={{ fontSize: "0.9em", marginLeft: `${1 * level}em`, textTransform: 'capitalize'}}>
+    <div style={{ fontSize: "0.9em", marginLeft: `${0.5 * level}em`, textTransform: 'capitalize'}}>
         <Link key={doc.id} to={doc.route}>
             {getTitle(name)}
         </Link>
